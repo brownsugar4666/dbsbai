@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ======================================
+   BHARATVOTE - Government of India 
+   Professional Design System
+   Modern • Trustworthy • Authoritative
+   ====================================== */
+
+:root {
+  /* Government Core Palette */
+  --gov-navy: #0A1A2F;
+  --gov-navy-light: #1A2E4A;
+  --gov-navy-dark: #050D18;
+  --gov-saffron: #FF9933;
+  --gov-saffron-dark: #E68A2E;
+  --gov-saffron-light: #FFAD5C;
+
+  /* Neutral Surface */
+  --surface-white: #FFFFFF;
+  --surface-light: #F7F8FA;
+  --surface-subtle: #EEF0F4;
+  --surface-muted: #E1E4EA;
+
+  /* Text Colors */
+  --text-primary: #0A1A2F;
+  --text-secondary: #4A5568;
+  --text-muted: #718096;
+  --text-light: #A0AEC0;
+  --text-on-dark: #FFFFFF;
+  --text-on-saffron: #0A1A2F;
+
+  /* Border */
+  --border-light: #E2E8F0;
+  --border-default: #CBD5E0;
+
+  /* Status */
+  --status-success: #22C55E;
+  --status-warning: #EAB308;
+  --status-error: #EF4444;
+  --status-info: #3B82F6;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-gov-navy antialiased;
+  }
+
+  /* Typography Scale - Clear Hierarchy */
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gov-navy;
+    line-height: 1.1;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight text-gov-navy;
+    line-height: 1.2;
+  }
+
+  h3 {
+    @apply text-xl font-semibold text-gov-navy;
+    line-height: 1.3;
+  }
+
+  h4 {
+    @apply text-lg font-medium text-gov-navy;
+  }
+
+  p {
+    @apply text-secondary leading-relaxed;
+  }
+
+  /* Focus States - Accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-gov-saffron ring-offset-2;
+  }
+}
+
+@layer components {
+
+  /* ===== Primary Button - Saffron ===== */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-medium bg-gov-saffron text-gov-navy hover:bg-saffron-dark focus:ring-2 focus:ring-gov-saffron focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* ===== Secondary Button - Navy Outline ===== */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-medium bg-white text-gov-navy border-2 border-gov-navy hover:bg-gov-navy hover:text-white focus:ring-2 focus:ring-gov-navy focus:ring-offset-2 transition-all duration-200;
+  }
+
+  /* ===== Ghost Button ===== */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md font-medium text-secondary hover:text-gov-navy hover:bg-surface-subtle transition-colors duration-200;
+  }
+
+  /* ===== Government Card ===== */
+  .gov-card {
+    @apply bg-white rounded-lg border border-border-light p-6;
+  }
+
+  .gov-card-elevated {
+    @apply gov-card shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+
+  /* ===== Form Input ===== */
+  .gov-input {
+    @apply w-full px-4 py-3 rounded-md bg-white border border-border-default text-gov-navy placeholder:text-muted focus:border-gov-saffron focus:ring-2 focus:ring-gov-saffron/20 transition-all duration-200;
+  }
+
+  .gov-input-error {
+    @apply border-status-error focus:ring-status-error/20;
+  }
+
+  .gov-label {
+    @apply block text-sm font-medium text-gov-navy mb-2;
+  }
+
+  /* ===== Status Badge ===== */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-full;
+  }
+
+  .badge-success {
+    @apply bg-green-50 text-green-700;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-50 text-yellow-700;
+  }
+
+  .badge-error {
+    @apply bg-red-50 text-red-700;
+  }
+
+  .badge-info {
+    @apply bg-blue-50 text-blue-700;
+  }
+
+  .badge-neutral {
+    @apply bg-surface-subtle text-secondary;
+  }
+
+  /* ===== Government Header Bar ===== */
+  .gov-header {
+    @apply bg-gov-navy text-white;
+  }
+
+  /* ===== Section Container ===== */
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .container-gov {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ===== Timeline ===== */
+  .timeline-dot-complete {
+    @apply bg-gov-saffron text-gov-navy;
+  }
+
+  .timeline-dot-current {
+    @apply bg-gov-navy text-white ring-4 ring-gov-navy/20;
+  }
+
+  .timeline-dot-pending {
+    @apply bg-surface-subtle text-muted border-2 border-border-default;
+  }
+}
+
+@layer utilities {
+
+  /* Government Colors */
+  .bg-gov-navy {
+    background-color: var(--gov-navy);
+  }
+
+  .bg-gov-navy-light {
+    background-color: var(--gov-navy-light);
+  }
+
+  .bg-gov-saffron {
+    background-color: var(--gov-saffron);
+  }
+
+  .bg-saffron-dark {
+    background-color: var(--gov-saffron-dark);
+  }
+
+  .text-gov-navy {
+    color: var(--gov-navy);
+  }
+
+  .text-gov-saffron {
+    color: var(--gov-saffron);
+  }
+
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+
+  .text-muted {
+    color: var(--text-muted);
+  }
+
+  .text-on-dark {
+    color: var(--text-on-dark);
+  }
+
+  .border-gov-navy {
+    border-color: var(--gov-navy);
+  }
+
+  .border-gov-saffron {
+    border-color: var(--gov-saffron);
+  }
+
+  .border-border-light {
+    border-color: var(--border-light);
+  }
+
+  .border-border-default {
+    border-color: var(--border-default);
+  }
+
+  .bg-surface-light {
+    background-color: var(--surface-light);
+  }
+
+  .bg-surface-subtle {
+    background-color: var(--surface-subtle);
+  }
+
+  .bg-surface-muted {
+    background-color: var(--surface-muted);
+  }
+
+  .ring-gov-saffron {
+    --tw-ring-color: var(--gov-saffron);
+  }
+
+  .ring-gov-navy {
+    --tw-ring-color: var(--gov-navy);
+  }
+
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Splash screen animations */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+
+  50% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+
+  75% {
+    transform: translateY(-30px) translateX(5px);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 30s linear infinite;
+}
+
+.animate-float {
+  animation: float 10s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
