@@ -150,3 +150,4 @@ MIT License - See LICENSE file for details.
 ---
 
 **Made with ❤️ for India's democratic future**
+
